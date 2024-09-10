@@ -233,3 +233,70 @@ from individual consultants to multinational companies.
 If you wish to make a financial contribution to the PostgreSQL Global
 Development Group or one of the recognized community non-profit organizations,
 please visit our [donations](https://www.postgresql.org/about/donate/) page.
+
+
+
+
+
+
+2024년 9월 26일, PostgreSQL 글로벌 개발 그룹(https://www.postgresql.org)
+은 오늘 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다,
+세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전입니다.
+
+수십 년에 걸친 오픈소스 개발을 기반으로 구축된 PostgreSQL 17은 성능과 확장성을 개선하는 동시에
+성능과 확장성을 개선하는 동시에 새로운 데이터 액세스 및 저장 패턴에 적응합니다.
+패턴에 적응합니다. 이번 릴리스(https://www.postgresql.org)에는 다음과 같은 기능이 추가되었습니다.
+메모리 관리 개선, 진공을 위한 구현, 스토리지 최적화 등 전반적인 성능 향상
+구현, 스토리지 액세스 최적화, 높은 동시성 워크로드에 대한
+높은 동시성 워크로드, 대량 로딩 및 내보내기 속도 향상, 쿼리
+실행 개선 등이 포함됩니다. PostgreSQL 17에는 다음과 같은 기능이 있습니다.
+새로운 워크로드 및 중요 시스템 모두에 도움이 되는 기능 추가
+SQL/JSON `JSON_TABLE` 명령에 대한 개발자 환경 및 개선된
+고가용성 워크로드 관리를 간소화하는 논리적 복제 및
+주요 버전 업그레이드.
+
+“PostgreSQL 17은 글로벌 오픈 소스 커뮤니티가 PostgreSQL의 개발을 주도하는
+데이터베이스 여정의 모든 단계에서 사용자에게 도움이 되는 개선 사항을 구축하는
+데이터베이스 여정의 모든 단계에서 사용자를 돕는 개선 사항을 구축하는 방법을 보여줍니다.
+팀의 일원입니다. “대규모 데이터베이스 운영을 위한 개선 사항이나
+즐거운 개발자 경험을 기반으로 하는 새로운 기능 등, PostgreSQL 17은
+은 데이터 관리 경험을 향상시킬 것입니다.” 
+
+신뢰성, 안정성, 확장성으로 유명한 혁신적인 데이터 관리 시스템인 PostgreSQL,
+견고성 및 확장성으로 잘 알려진 혁신적인 데이터 관리 시스템인 PostgreSQL은 25년 이상의 오픈 소스
+글로벌 개발자 커뮤니티에서 개발되었으며 모든 조직에서 선호하는 오픈 소스 관계형 데이터베이스로
+모든 규모의 조직을 위한 오픈 소스 관계형 데이터베이스입니다.
+
+### 시스템 전반의 성능 향상
+
+PostgreSQL [진공](https://www.postgresql.org/docs/17/routine-vacuuming.html)
+프로세스는 정상적인 운영을 위해 매우 중요하며, 서버 인스턴스 리소스가
+을 필요로 합니다. PostgreSQL 17은 진공을 위한 새로운 내부 메모리 구조를 도입하여
+을 위한 새로운 내부 메모리 구조를 도입했습니다. 이를 통해 진공 속도가 향상되고
+또한 공유 리소스 사용을 줄여 워크로드에 더 많은
+워크로드.
+
+PostgreSQL 17은 I/O 계층의 성능을 지속적으로 개선하고 있습니다. 높은
+동시성이 높은 워크로드는 다음과 같은 이유로 쓰기 처리량이 최대 2배까지 향상될 수 있습니다.
+미리 쓰기 로그] 개선(https://www.postgresql.org/docs/17/wal-intro.html)
+([WAL](https://www.postgresql.org/docs/17/wal-intro.html)) 처리가 개선되었습니다.
+또한, 새로운 스트리밍 I/O 인터페이스는 순차 스캔 속도를 높여줍니다.
+(테이블에서 모든 데이터 읽기) 및 얼마나 빨리
+[분석]](https://www.postgresql.org/docs/17/sql-analyze.html)이 업데이트할 수 있는 속도와
+플래너 통계.
+
+PostgreSQL 17은 또한 쿼리 실행에도 성능 향상을 확장합니다.
+PostgreSQL 17은 `IN` 절을 사용하는 쿼리의 성능을 개선합니다.
+[B-tree](https://www.postgresql.org/docs/17/indexes-types.html#INDEXES-TYPES-BTREE)
+인덱스, Po의 기본 인덱스 방법
+
+
+
+
+
+
+
+
+
+
+
