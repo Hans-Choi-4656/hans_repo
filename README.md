@@ -1,239 +1,238 @@
-September 26, 2024 - The [PostgreSQL Global Development Group](https://www.postgresql.org)
-today announced the release of [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html),
-the latest version of the world's most advanced open source database.
+2024년 9월 26일 - [PostgreSQL 글로벌 개발 그룹](https://www.postgresql.org)
+은 오늘 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다,
+세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전입니다.
 
-PostgreSQL 17 builds on decades of open source development, improving its
-performance and scalability while adapting to emergent data access and storage
-patterns. This release of [PostgreSQL](https://www.postgresql.org) adds
-significant overall performance gains, including an overhauled memory management
-implementation for vacuum, optimizations to storage access and improvements for
-high concurrency workloads, speedups in bulk loading and exports, and query
-execution improvements for indexes. PostgreSQL 17 has features that benefit
-brand new workloads and critical systems alike, such as additions to the
-developer experience with the SQL/JSON `JSON_TABLE` command, and enhancements to
-logical replication that simplify management of high availability workloads and
-major version upgrades.
+수십 년에 걸친 오픈소스 개발을 기반으로 구축된 PostgreSQL 17은 성능과 확장성을 개선하는 동시에
+성능과 확장성을 개선하는 동시에 새로운 데이터 액세스 및 저장 패턴에 적응합니다.
+패턴에 적응합니다. 이번 릴리스(https://www.postgresql.org)에는 다음과 같은 기능이 추가되었습니다.
+메모리 관리 개선, 진공을 위한 구현, 스토리지 최적화 등 전반적인 성능 향상
+구현, 스토리지 액세스 최적화, 높은 동시성 워크로드에 대한
+높은 동시성 워크로드, 대량 로딩 및 내보내기 속도 향상, 쿼리
+실행 개선 등이 포함됩니다. PostgreSQL 17에는 다음과 같은 기능이 있습니다.
+새로운 워크로드 및 중요 시스템 모두에 도움이 되는 기능 추가
+SQL/JSON `JSON_TABLE` 명령에 대한 개발자 환경 및 개선된
+고가용성 워크로드 관리를 간소화하는 논리적 복제 및
+주요 버전 업그레이드.
 
-"PostgreSQL 17 highlights how the global open source community, which drives the
-development of PostgreSQL, builds enhancements that help users at all stages of
-their database journey," said Jonathan Katz, a member of the PostgreSQL core
-team. "Whether it's improvements for operating databases at scale or
-new features that build on a delightful developer experience, PostgreSQL 17
-will enhance your data management experience." 
+“PostgreSQL 17은 글로벌 오픈 소스 커뮤니티가 PostgreSQL의 개발을 주도하는
+데이터베이스 여정의 모든 단계에서 사용자에게 도움이 되는 개선 사항을 구축하는
+데이터베이스 여정의 모든 단계에서 사용자를 돕는 개선 사항을 구축하는 방법을 보여줍니다.
+팀의 일원입니다. “대규모 데이터베이스 운영을 위한 개선 사항이나
+즐거운 개발자 경험을 기반으로 하는 새로운 기능 등, PostgreSQL 17은
+은 데이터 관리 경험을 향상시킬 것입니다.” 
 
-PostgreSQL, an innovative data management system known for its reliability,
-robustness, and extensibility, benefits from over 25 years of open source
-development from a global developer community and has become the preferred open
-source relational database for organizations of all sizes.
+신뢰성, 안정성, 확장성으로 유명한 혁신적인 데이터 관리 시스템인 PostgreSQL,
+견고성 및 확장성으로 잘 알려진 혁신적인 데이터 관리 시스템인 PostgreSQL은 25년 이상의 오픈 소스
+글로벌 개발자 커뮤니티에서 개발되었으며 모든 조직에서 선호하는 오픈 소스 관계형 데이터베이스로
+오픈 소스 관계형 데이터베이스로 자리 잡았습니다.
 
-### System-wide performance gains
+### 시스템 전반의 성능 향상
 
-The PostgreSQL [vacuum](https://www.postgresql.org/docs/17/routine-vacuuming.html)
-process is critical for healthy operations, requiring server instance resources
-to operate. PostgreSQL 17 introduces a new internal memory structure for vacuum
-that consumes up to 20x less memory. This improves vacuum speed and
-also reduces the use of shared resources, making more available for your
-workload.
+PostgreSQL [진공](https://www.postgresql.org/docs/17/routine-vacuuming.html)
+프로세스는 정상적인 운영을 위해 매우 중요하며, 서버 인스턴스 리소스를 필요로 합니다.
+을 필요로 합니다. PostgreSQL 17은 진공을 위한 새로운 내부 메모리 구조를 도입하여
+을 위한 새로운 내부 메모리 구조를 도입했습니다. 이를 통해 진공 속도가 향상되고
+또한 공유 리소스 사용을 줄여 워크로드에 더 많은
+워크로드.
 
-PostgreSQL 17 continues to improve performance of its I/O layer. High
-concurrency workloads may see up to 2x better write throughput due to
-improvements with [write-ahead log](https://www.postgresql.org/docs/17/wal-intro.html)
-([WAL](https://www.postgresql.org/docs/17/wal-intro.html)) processing.
-Additionally, the new streaming I/O interface speeds up sequential scans
-(reading all the data from a table) and how quickly
-[`ANALYZE`](https://www.postgresql.org/docs/17/sql-analyze.html) can update
-planner statistics.
+PostgreSQL 17은 I/O 계층의 성능을 지속적으로 개선하고 있습니다. 높은
+동시성이 높은 워크로드는 다음과 같은 이유로 쓰기 처리량이 최대 2배까지 향상될 수 있습니다.
+미리 쓰기 로그] 개선(https://www.postgresql.org/docs/17/wal-intro.html)
+([WAL](https://www.postgresql.org/docs/17/wal-intro.html)) 처리가 개선되었습니다.
+또한, 새로운 스트리밍 I/O 인터페이스는 순차 스캔 속도를 높여줍니다.
+(테이블에서 모든 데이터 읽기) 및 얼마나 빨리
+[분석]](https://www.postgresql.org/docs/17/sql-analyze.html)이 업데이트할 수 있는 속도와
+플래너 통계.
 
-PostgreSQL 17 also extends its performance gains to query execution.
-PostgreSQL 17 improves the performance of queries with `IN` clauses that use
+PostgreSQL 17은 또한 쿼리 실행에도 성능 향상을 확장합니다.
+PostgreSQL 17은 `IN` 절을 사용하는 쿼리의 성능을 개선합니다.
 [B-tree](https://www.postgresql.org/docs/17/indexes-types.html#INDEXES-TYPES-BTREE)
-indexes, the default index method in PostgreSQL. Additionally,
-[BRIN](https://www.postgresql.org/docs/17/brin.html) indexes now support
-parallel builds. PostgreSQL 17 includes several improvements for query planning,
-including optimizations for `NOT NULL` constraints, and improvements in
-processing [common table expressions](https://www.postgresql.org/docs/17/queries-with.html)
-([`WITH` queries](https://www.postgresql.org/docs/17/queries-with.html)). This
-release adds more SIMD (Single Instruction/Multiple Data) support for
-accelerating computations, including using AVX-512 for the
+인덱스를 사용하는 `IN` 절로 쿼리 성능을 개선합니다. 또한
+[BRIN](https://www.postgresql.org/docs/17/brin.html) 인덱스는 이제
+병렬 빌드를 지원합니다. PostgreSQL 17에는 쿼리 계획에 대한 몇 가지 개선 사항이 포함되어 있습니다,
+NULL` 제약 조건에 대한 최적화를 비롯하여 쿼리 계획에 대한 몇 가지 개선 사항이 포함되어 있습니다.
+일반 테이블 표현식] 처리(https://www.postgresql.org/docs/17/queries-with.html)
+([`WITH` 쿼리](https://www.postgresql.org/docs/17/queries-with.html)). 이
+릴리스에는 더 많은 SIMD(단일 명령어/복수 데이터) 지원이 추가되었습니다.
+계산 가속화를 위한 SIMD(단일 명령어/다중 데이터) 지원이 추가되었습니다.
 [`bit_count`](https://www.postgresql.org/docs/17/functions-bitstring.html)
-function.
+함수.
 
-### Further expansion of a robust developer experience
+### 강력한 개발자 환경의 추가 확장
 
-PostgreSQL was the [first relational database to add JSON support (2012)](https://www.postgresql.org/about/news/postgresql-92-released-1415/),
-and PostgreSQL 17 adds to its implementation of the SQL/JSON standard.
-[`JSON_TABLE`](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-TABLE)
-is now available in PostgreSQL 17, letting developers convert JSON data into a
-standard PostgreSQL table. PostgreSQL 17 now supports [SQL/JSON constructors](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE)
-(`JSON`, `JSON_SCALAR`, `JSON_SERIALIZE`) and
-[query functions](https://www.postgresql.org/docs/17/functions-json.html#SQLJSON-QUERY-FUNCTIONS)
-(`JSON_EXISTS`, `JSON_QUERY`, `JSON_VALUE`), giving developers other ways of
-interfacing with their JSON data. This release adds more
-[`jsonpath` expressions](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-PATH-OPERATORS),
-with an emphasis of converting JSON data to a native PostgreSQL data type,
-including numeric, boolean, string, and date/time types.
+PostgreSQL은 [JSON 지원을 추가한 최초의 관계형 데이터베이스(2012년)]였습니다(https://www.postgresql.org/about/news/postgresql-92-released-1415/),
+그리고 PostgreSQL 17은 SQL/JSON 표준 구현을 추가했습니다.
+[`json_table`](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-TABLE)
+은 이제 PostgreSQL 17에서 사용할 수 있으므로 개발자가 JSON 데이터를
+표준 PostgreSQL 테이블로 변환할 수 있습니다. PostgreSQL 17은 이제 [SQL/JSON 생성자](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE)를 지원합니다.
+(`JSON`, `JSON_SCALAR`, `JSON_SERIALIZE`) 및
+[쿼리 함수](https://www.postgresql.org/docs/17/functions-json.html#SQLJSON-QUERY-FUNCTIONS)
+(`JSON_EXISTS`, `JSON_QUERY`, `JSON_VALUE`), 개발자에게 다른 방법으로 [...]를 제공합니다.
+다른 방법을 제공합니다. 이번 릴리스에는 다음이 추가되었습니다.
+[`jsonpath` 표현식](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-PATH-OPERATORS),
+JSON 데이터를 네이티브 PostgreSQL 데이터 유형으로 변환하는 데 중점을 두고 있습니다,
+숫자, 부울, 문자열 및 날짜/시간 유형을 포함합니다.
 
-PostgreSQL 17 adds more features to [`MERGE`](https://www.postgresql.org/docs/17/sql-merge.html),
-which is used for conditional updates, including a `RETURNING` clause and the
-ability to update [views](https://www.postgresql.org/docs/17/sql-createview.html).
-Additionally, PostgreSQL 17 has new capabilities for bulk loading and data
-exporting, including up to a 2x performance improvement when exporting large rows
-using the [`COPY`](https://www.postgresql.org/docs/17/sql-copy.html) command.
-`COPY` performance also has improvements when the source and destination
-encodings match, and includes a new option, `ON_ERROR`, that allows an import to
-continue even if there is an insert error.
+PostgreSQL 17은 [`MERGE`](https://www.postgresql.org/docs/17/sql-merge.html)에 더 많은 기능을 추가합니다,
+조건부 업데이트에 사용되는 `RETURNING` 절 및
+보기](https://www.postgresql.org/docs/17/sql-createview.html)를 업데이트할 수 있는 기능이 추가되었습니다.
+또한 PostgreSQL 17에는 대량 로딩 및 데이터 내보내기를 위한 새로운 기능이 있습니다.
+내보내기, 대용량 행 내보내기 시 최대 2배의 성능 향상 포함
+COPY`](https://www.postgresql.org/docs/17/sql-copy.html) 명령을 사용하여 큰 행을 내보낼 때 최대 2배의 성능 향상을 포함합니다.
+원본과 대상이 일치하는 경우 `COPY` 성능도 개선되었습니다.
+인코딩이 일치하는 경우에도 성능이 향상되었으며, 새로운 옵션인 `ON_ERROR`가 추가되어 삽입 오류가 있는 경우에도 가져오기를
+가져오기를 계속할 수 있는 새로운 옵션이 포함되어 있습니다.
 
-This release expands on functionality both for managing data in partitions and
-data distributed across remote PostgreSQL instances. PostgreSQL 17 supports
-using identity columns and exclusion constraints on
-[partitioned tables](https://www.postgresql.org/docs/17/ddl-partitioning.html).
-The [PostgreSQL foreign data wrapper](https://www.postgresql.org/docs/17/postgres-fdw.html)
-([`postgres_fdw`](https://www.postgresql.org/docs/17/postgres-fdw.html)), used
-to execute queries on remote PostgreSQL instances, can now push `EXISTS` and
-`IN` subqueries to the remote server for more efficient processing.
+이번 릴리스에서는 파티션의 데이터 관리 기능과 원격 Postgreasearch에 분산된 데이터
+파티션의 데이터와 원격 PostgreSQL 인스턴스에 분산된 데이터를 관리하는 기능이 확장되었습니다. PostgreSQL 17은 다음을 지원합니다.
+ID 열 및 제외 제약 조건 사용
+[파티션된 테이블](https://www.postgresql.org/docs/17/ddl-partitioning.html).
+PostgreSQL 외부 데이터 래퍼](https://www.postgresql.org/docs/17/postgres-fdw.html)
+([`postgres_fdw`](https://www.postgresql.org/docs/17/postgres-fdw.html)), 사용됨.
+는 이제 원격 PostgreSQL 인스턴스에서 쿼리를 실행하기 위해 `EXISTS` 및
+IN` 하위 쿼리를 원격 서버로 푸시하여 보다 효율적으로 처리할 수 있습니다.
 
-PostgreSQL 17 also includes a built-in, platform independent, immutable
-collation provider that's guaranteed to be immutable and provides similar
-sorting semantics to the `C` collation except with `UTF-8` encoding rather than
-`SQL_ASCII`. Using this new collation provider guarantees that your text-based
-queries will return the same sorted results regardless of where you run
+또한, PostgreSQL 17에는 플랫폼에 독립적이고 변경이 불가능한
+콜레이션 제공자가 내장되어 있으며, 이는 불변성을 보장하고 ``유사한 정렬 의미론``을 제공합니다.
+C` 콜레이션과 유사한 정렬 시맨틱을 제공하지만, 인코딩 방식은
+SQL_ASCII`를 사용한다는 점을 제외하면 말입니다. 이 새로운 콜레이션 제공자를 사용하면 텍스트 기반 쿼리에서
+쿼리가 실행하는 위치에 관계없이 동일한 정렬된 결과를 반환하도록 보장합니다.
 PostgreSQL.
 
-### Logical replication enhancements for high availability and major version upgrades
+### 고가용성 및 주요 버전 업그레이드를 위한 논리적 복제 기능 향상
 
-[Logical replication](https://www.postgresql.org/docs/17/logical-replication.html)
-is used to stream data in real-time across many use cases. However, prior to
-this release, users who wanted to perform a major version upgrade would have to
-drop [logical replication slots](https://www.postgresql.org/docs/17/logical-replication-subscription.html#LOGICAL-REPLICATION-SUBSCRIPTION-SLOT), which requires resynchronizing data
-to subscribers after an upgrade. Starting with upgrades from PostgreSQL 17,
-users don't have to drop logical replication slots, simplifying the upgrade
-process when using logical replication.
+[논리적 복제](https://www.postgresql.org/docs/17/logical-replication.html)
+은 많은 사용 사례에서 데이터를 실시간으로 스트리밍하는 데 사용됩니다. 하지만 이번 릴리스 이전에는
+이 릴리스 이전에는 주요 버전 업그레이드를 수행하려는 사용자는 다음을 수행해야 했습니다.
+데이터를 다시 동기화해야 하는 [논리적 복제 슬롯](https://www.postgresql.org/docs/17/logical-replication-subscription.html#LOGICAL-REPLICATION-SUBSCRIPTION-SLOT)을 삭제해야 했습니다.
+를 재동기화해야 했습니다. PostgreSQL 17부터 업그레이드하는 경우,
+사용자는 논리적 복제 슬롯을 삭제할 필요가 없으므로 논리적 복제를 사용할 때 업그레이드
+프로세스를 간소화할 수 있습니다.
 
-PostgreSQL 17 now includes failover control for logical replication, making it
-more resilient when deployed in high availability environments. Additionally,
-PostgreSQL 17 introduces the
+이제 PostgreSQL 17에는 논리적 복제를 위한 장애 조치 제어 기능이 포함되어 있습니다.
+고가용성 환경에 배포할 때 더욱 탄력적으로 사용할 수 있습니다. 또한,
+PostgreSQL 17은
 [`pg_createsubscriber`](https://www.postgresql.org/docs/17/app-pgcreatesubscriber.html)
-command-line tool for converting a physical replica into a new logical replica.
+명령줄 도구를 도입하여 물리적 복제본을 새로운 논리적 복제본으로 변환할 수 있습니다.
 
-### More options for managing security and operations
+### 보안 및 운영 관리를 위한 더 많은 옵션 제공
 
-PostgreSQL 17 further extends how users can manage the overall lifecycle of
-their database systems. PostgreSQL has a new TLS option, `sslnegotiation`, that
-lets users perform a direct TLS handshakes when using
+PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 수명 주기를 관리할 수 있는
+관리할 수 있는 방법이 더욱 확장되었습니다. PostgreSQL에는 새로운 TLS 옵션인 `sslnegotiation`이 있습니다.
+를 사용할 때 사용자가 직접 TLS 핸드셰이크를 수행할 수 있습니다.
 [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)
-(registered as `postgresql` in the ALPN directory). PostgreSQL 17 also adds the
-`pg_maintain` [predefined role](https://www.postgresql.org/docs/17/predefined-roles.html),
-which gives users permission to perform maintenance operations.
+(ALPN 디렉터리에 `postgresql`로 등록됨). PostgreSQL 17은 또한
+미리 정의된 역할](https://www.postgresql.org/docs/17/predefined-roles.html),
+사용자에게 유지 관리 작업을 수행할 수 있는 권한을 부여합니다.
 
-[`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html), the
-backup utility included in PostgreSQL, now supports incremental backups and adds
-the [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 
-utility to reconstruct a full backup. Additionally,
-[`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html) includes a new
-option called `--filter` that lets you select what objects to include when
-generating a dump file.
+[`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html), 포스트그레SQL에 포함된
+백업 유틸리티가 이제 증분 백업을 지원하고
+전체 백업을 재구성하는 [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 
+유틸리티를 추가하여 전체 백업을 재구성할 수 있습니다. 또한
+[`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html)에는 `--필터`라는 새로운
+필터`라는 새로운 옵션이 포함되어 있어 덤프 파일을 생성할 때 포함할 개체를 선택할 수 있습니다.
+덤프 파일을 생성할 때 포함할 개체를 선택할 수 있습니다.
 
-PostgreSQL 17 also includes enhancements to monitoring and analysis features.
-[`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html) now shows the
-time spent for local I/O block reads and writes, and includes two new options:
-`SERIALIZE` and `MEMORY`, useful for seeing the time spent in data conversion
-for network transmission, and how much memory was used. PostgreSQL 17 now
-reports the [progress of vacuuming indexes](https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING),
-and adds the [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html)
-system view that, when combined with [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW),
-gives more insight into why an active session is waiting.
+PostgreSQL 17에는 모니터링 및 분석 기능에 대한 개선 사항도 포함되어 있습니다.
+이제 [`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html)에 로컬 I/O 블록 읽기에 소요된
+로컬 I/O 블록 읽기 및 쓰기에 소요된 시간을 표시하며, 두 가지 새로운 옵션을 포함합니다:
+네트워크 전송을 위해 데이터 변환에 소요된 시간과
+및 사용된 메모리 양을 확인하는 데 유용합니다. 이제 PostgreSQL 17은
+은 [인덱스 진공 청소 진행 상황]을 보고합니다(https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING),
+그리고 [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html)
+시스템 뷰가 추가되어 [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)와 결합하면
+활성 세션이 대기 중인 이유에 대한 더 많은 인사이트를 제공합니다.
 
-### Additional Features
+### 추가 기능
 
-Many other new features and improvements have been added to PostgreSQL 17 that
-may also be helpful for your use cases. Please see the
-[release notes](https://www.postgresql.org/docs/17/release-17.html) for a
-complete list of new and changed features.
+그 외 많은 새로운 기능과 개선 사항이 PostgreSQL 17에 추가되었습니다.
+사용 사례에 도움이 될 수 있습니다. 자세한 내용은
+[릴리스 노트](https://www.postgresql.org/docs/17/release-17.html)를 참조하세요.
+신규 및 변경된 기능의 전체 목록을 확인하세요.
 
-### About PostgreSQL
+### PostgreSQL 소개
 
-[PostgreSQL](https://www.postgresql.org) is the world's most advanced open
-source database, with a global community of thousands of users, contributors,
-companies and organizations. Built on over 35 years of engineering, starting at
-the University of California, Berkeley, PostgreSQL has continued with an
-unmatched pace of development. PostgreSQL's mature feature set not only matches
-top proprietary database systems, but exceeds them in advanced database
-features, extensibility, security, and stability.
+[PostgreSQL](https://www.postgresql.org)은 세계에서 가장 진보된 오픈 소스 데이터베이스입니다.
+수천 명의 사용자, 기여자로 구성된 글로벌 커뮤니티가 있는 세계에서 가장 진보된 오픈 소스 데이터베이스입니다,
+회사 및 조직. 캘리포니아 버클리 대학교에서 시작된 35년 이상의 엔지니어링을 기반으로 구축되었습니다.
+캘리포니아 버클리 대학교에서 시작된 PostgreSQL은 타의 추종을 불허하는
+타의 추종을 불허하는 개발 속도를 이어가고 있습니다. PostgreSQL의 성숙한 기능 세트는
+최고의 독점 데이터베이스 시스템과 일치할 뿐만 아니라 고급 데이터베이스에서는 이를 능가합니다.
+기능, 확장성, 보안 및 안정성 면에서 최고를 능가합니다.
 
-### Links
+### 링크
 
-* [Download](https://www.postgresql.org/download/)
-* [Release Notes](https://www.postgresql.org/docs/17/release-17.html)
-* [Press Kit](https://www.postgresql.org/about/press/)
-* [Security Page](https://www.postgresql.org/support/security/)
-* [Versioning Policy](https://www.postgresql.org/support/versioning/)
-* [Follow @postgresql](https://twitter.com/postgresql)
-* [Donate](https://www.postgresql.org/about/donate/)
+* [다운로드](https://www.postgresql.org/download/)
+* [릴리즈 노트](https://www.postgresql.org/docs/17/release-17.html)
+* [프레스 키트](https://www.postgresql.org/about/press/)
+* [보안 페이지](https://www.postgresql.org/support/security/)
+* 버전 관리 정책](https://www.postgresql.org/support/versioning/)
+* 팔로우](https://twitter.com/postgresql)
+* 기부](https://www.postgresql.org/about/donate/)
 
-## More About the Features
+## 기능에 대해 자세히 알아보기
 
-For explanations of the above features and others, please see the following
-resources:
+위의 기능 및 기타 기능에 대한 설명은 다음을 참조하세요.
+리소스를 참조하세요:
 
-* [Release Notes](https://www.postgresql.org/docs/17/release-17.html)
-* [Feature Matrix](https://www.postgresql.org/about/featurematrix/)
+* [릴리즈 노트](https://www.postgresql.org/docs/17/release-17.html)
+* [기능 매트릭스](https://www.postgresql.org/about/featurematrix/)
 
-## Where to Download
+## 다운로드 위치
 
-There are several ways you can download PostgreSQL 17, including:
+다음과 같은 여러 가지 방법으로 PostgreSQL 17을 다운로드할 수 있습니다:
 
-* The [Official Downloads](https://www.postgresql.org/download/) page, with contains installers and tools for [Windows](https://www.postgresql.org/download/windows/), [Linux](https://www.postgresql.org/download/linux/), [macOS](https://www.postgresql.org/download/macosx/), and more.
-* [Source Code](https://www.postgresql.org/ftp/source/v17.0)
+* 공식 다운로드](https://www.postgresql.org/download/) 페이지에서 [Windows](https://www.postgresql.org/download/windows/), [Linux](https://www.postgresql.org/download/linux/), [macOS](https://www.postgresql.org/download/macosx/) 등을 위한 설치 프로그램 및 도구를 다운로드할 수 있습니다.
+* [소스 코드](https://www.postgresql.org/ftp/source/v17.0)
 
-Other tools and extensions are available on the
-[PostgreSQL Extension Network](http://pgxn.org/).
+다른 도구와 확장 프로그램은
+[PostgreSQL 확장 네트워크](http://pgxn.org/).
 
-## Documentation
+## 문서
 
-PostgreSQL 17 comes with HTML documentation as well as man pages, and you can also browse the documentation online in both [HTML](https://www.postgresql.org/docs/17/) and [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) formats.
+PostgreSQL 17은 매뉴얼 페이지뿐만 아니라 HTML 문서도 함께 제공되며, [HTML](https://www.postgresql.org/docs/17/) 및 [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) 형식의 문서를 온라인에서 찾아볼 수도 있습니다.
 
-## Licence
+## 라이선스
 
-PostgreSQL uses the [PostgreSQL License](https://www.postgresql.org/about/licence/),
-a BSD-like "permissive" license. This
-[OSI-certified license](http://www.opensource.org/licenses/postgresql/) is
-widely appreciated as flexible and business-friendly, since it does not restrict
-the use of PostgreSQL with commercial and proprietary applications. Together
-with multi-company support and public ownership of the code, our license makes
-PostgreSQL very popular with vendors wanting to embed a database in their own
-products without fear of fees, vendor lock-in, or changes in licensing terms.
+PostgreSQL은 [PostgreSQL 라이선스](https://www.postgresql.org/about/licence/)를 사용합니다,
+BSD와 유사한 “허용적” 라이선스를 사용합니다. 이
+[OSI 인증 라이선스](http://www.opensource.org/licenses/postgresql/)는
+유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다.
+유연하고 비즈니스 친화적이라는 평가를 받고 있습니다. 함께
+여러 회사의 지원과 코드에 대한 공개 소유권을 갖춘 이 라이선스는
+자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기 있는 PostgreSQL은
+수수료, 공급업체 종속 또는 라이선스 조건 변경에 대한 걱정 없이 자사 제품에 데이터베이스를 내장하려는 공급업체에게 인기가 높습니다.
 
-## Contacts
+## 연락처
 
-Website
+웹사이트
 
 * [https://www.postgresql.org/](https://www.postgresql.org/)
 
-Email
+이메일
 
 * [press@postgresql.org](mailto:press@postgresql.org)
 
-## Images and Logos
+## 이미지 및 로고
 
-Postgres, PostgreSQL, and the Elephant Logo (Slonik) are all registered
-trademarks of the [PostgreSQL Community Association](https://www.postgres.ca).
-If you wish to use these marks, you must comply with the [trademark policy](https://www.postgresql.org/about/policies/trademarks/).
+Postgres, PostgreSQL 및 코끼리 로고(Slonik)는 모두 등록된
+상표입니다(https://www.postgres.ca).
+이러한 마크를 사용하려면 [상표 정책](https://www.postgresql.org/about/policies/trademarks/)을 준수해야 합니다.
 
-## Corporate Support and Donations
+## 기업 지원 및 기부
 
-PostgreSQL enjoys the support of numerous companies, who sponsor developers,
-provide hosting resources, and give us financial support. See our
-[sponsors](https://www.postgresql.org/about/sponsors/) page for some of these
-project supporters.
+PostgreSQL은 개발자를 후원하는 수많은 기업의 지원을 받고 있습니다,
+호스팅 리소스를 제공하고 재정적 지원을 제공합니다. 다음을 참조하십시오.
+[스폰서](https://www.postgresql.org/about/sponsors/) 페이지를 참조하십시오.
+프로젝트 서포터.
 
-There is also a large community of
-[companies offering PostgreSQL Support](https://www.postgresql.org/support/professional_support/),
-from individual consultants to multinational companies.
+또한 다음과 같은 대규모 커뮤니티도 있습니다.
+[PostgreSQL 지원을 제공하는 회사](https://www.postgresql.org/support/professional_support/),
+개인 컨설턴트부터 다국적 기업에 이르기까지 다양합니다.
 
-If you wish to make a financial contribution to the PostgreSQL Global
-Development Group or one of the recognized community non-profit organizations,
-please visit our [donations](https://www.postgresql.org/about/donate/) page.
-
+PostgreSQL 글로벌 개발 그룹에 재정적 기여를 하고 싶다면
+개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으신 경우,
+기부](https://www.postgresql.org/about/donate/) 페이지를 방문하세요.
 
 
 
