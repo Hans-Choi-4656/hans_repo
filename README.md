@@ -15,19 +15,10 @@ PostgreSQL 17은 VACUUM 프로세스를 위한 최대 20배 적은 메모리를 
 PostgreSQL 17은 I/O 계층의 성능을 지속적으로 개선하고 있습니다. 동시성이 높은 워크로드의 경우, [WAL](https://www.postgresql.org/docs/17/wal-intro.html)처리의 개선으로 쓰기 처리량이 최대 2배까지 향상될 수 있습니다.
 또한, 새로운 스트리밍 I/O 인터페이스는 순차 스캔(테이블에서 모든 데이터 읽기) 속도와 [분석](https://www.postgresql.org/docs/17/sql-analyze.html)에서 플래너 통계를 업데이트하는 속도를 높여줍니다.
 
-PostgreSQL 17은 또한 쿼리 실행에도 성능 향상을 확장합니다.
-PostgreSQL 17은 `IN` 절을 사용하는 쿼리의 성능을 개선합니다.
-[B-tree](https://www.postgresql.org/docs/17/indexes-types.html#INDEXES-TYPES-BTREE)
-인덱스를 사용하는 `IN` 절로 쿼리 성능을 개선합니다. 또한
-[BRIN](https://www.postgresql.org/docs/17/brin.html) 인덱스는 이제
-병렬 빌드를 지원합니다. PostgreSQL 17에는 쿼리 계획에 대한 몇 가지 개선 사항이 포함되어 있습니다,
-NULL` 제약 조건에 대한 최적화를 비롯하여 쿼리 계획에 대한 몇 가지 개선 사항이 포함되어 있습니다.
-일반 테이블 표현식] 처리(https://www.postgresql.org/docs/17/queries-with.html)
-([`WITH` 쿼리](https://www.postgresql.org/docs/17/queries-with.html)). 이
-릴리스에는 더 많은 SIMD(단일 명령어/복수 데이터) 지원이 추가되었습니다.
-계산 가속화를 위한 SIMD(단일 명령어/다중 데이터) 지원이 추가되었습니다.
-[`bit_count`](https://www.postgresql.org/docs/17/functions-bitstring.html)
-함수.
+PostgreSQL 17은 쿼리 실행에 대한 성능을 향상시켰습니다. 
+PostgreSQL 17은 기본 인덱스 방식인 [B-tree](https://www.postgresql.org/docs/17/indexes-types.html#INDEXES-TYPES-BTREE) 인덱스를 사용하는 `IN` 절의 쿼리 성능을 개선합니다.
+또한 [BRIN](https://www.postgresql.org/docs/17/brin.html) 인덱스는 이제 병렬 빌드를 지원합니다.
+PostgreSQL 17에는 NOT NULL 제약 조건에 대한 최적화, [일반적인 테이블 표현식](https://www.postgresql.org/docs/17/queries-with.html) ([`WITH` 쿼리](https://www.postgresql.org/docs/17/queries-with.html)) 처리 개선 등 쿼리 계획에 대한 몇 가지 개선 사항이 포함되어 있습니다. 이번 릴리스에는 [`bit_count`](https://www.postgresql.org/docs/17/functions-bitstring.html) 함수에 AVX-512를 사용하는 등 계산 가속화를 위한 SIMD(단일 명령어/복수 데이터) 지원이 추가되었습니다.
 
 ### 강력한 개발자 환경의 추가 확장
 
