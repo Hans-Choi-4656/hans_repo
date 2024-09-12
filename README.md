@@ -146,7 +146,7 @@ PostgreSQL 17에는 모니터링 및 분석 기능에 대한 개선 사항도 �
 * [공식 다운로드](https://www.postgresql.org/download/) 페이지에서 [Windows](https://www.postgresql.org/download/windows/), [Linux](https://www.postgresql.org/download/linux/), [macOS](https://www.postgresql.org/download/macosx/) 등을 위한 설치 프로그램 및 도구를 다운로드할 수 있습니다.
 * [소스 코드](https://www.postgresql.org/ftp/source/v17.0)
 
-다른 도구와 확장 프로그램은 [PostgreSQL 확장 네트워크](http://pgxn.org/).
+다른 도구와 확장 프로그램은 [PostgreSQL Extension Network](http://pgxn.org/)에서 확인할 수 있습니다.
 
 ## 문서
 
