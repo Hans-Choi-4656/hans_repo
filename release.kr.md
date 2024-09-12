@@ -39,7 +39,7 @@ PostgreSQL 17은 논리적 복제를 위한 장애 조치(failover) 제어 기�
 
 ### 보안 및 운영 관리를 위한 다양한 옵션
 
-PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 라이프사이클을 관리할 수 있는 방법을 더욱 확장시켰습니다. PostgreSQL에는 새로운 TLS 옵션인 sslnegotiation이 있습니다. 이 옵션을 통해 [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) (ALPN 디렉토리에 postgresql로 등록되어있음)을 사용할 때 사용자가 직접 TLS handshake를 수행할 수 있습니다.  PostgreSQL 17은 또한 사용자가 데이터베이스의 유지 관리 작업을 수행할 수 있는 권한을 가진 `pg_maintain`이라는 [predefined role](https://www.postgresql.org/docs/17/predefined-roles.html)을 새로 추가했습니다.
+PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 라이프사이클을 관리할 수 있는 방법을 더욱 확장시켰습니다. PostgreSQL에는 새로운 TLS 옵션인 sslnegotiation이 있습니다. 이 옵션을 통해 [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) (ALPN 디렉토리에 postgresql로 등록되어있음)을 사용할 때 사용자가 직접 TLS 핸드셰이크를 수행할 수 있습니다. 또한 PostgreSQL 17은 사용자가 데이터베이스의 유지 관리 작업을 수행할 수 있는 권한을 가진 `pg_maintain`이라는 [predefined role](https://www.postgresql.org/docs/17/predefined-roles.html)을 새로 추가했습니다.
 
 [`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html)은 PostgreSQL에 포함된 백업 유틸리티로, 현재 증분 백업을 지원하며, 전체 백업을 재구성할 수 있는 [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 유틸리티가 추가되었습니다. 또한, [`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html)을 생성할 때 포함할 객체를 선택할 수 있는 새로운 옵션인 `--filter`를 포함하고 있습니다.
 
