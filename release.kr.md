@@ -115,10 +115,10 @@ Postgres, PostgreSQL 및 코끼리 로고(Slonik)는 모두 [PostgreSQL 커뮤�
 ## 기업 지원 및 기부
 
 PostgreSQL은 개발자를 후원하고, 호스팅 리소스를 제공하고, 재정적 지원을 제공하는 수많은 회사의 지원을 받고 있습니다. 
-이러한 프로젝트 후원자 중 일부는 [스폰서](https://www.postgresql.org/about/sponsors/) 페이지를 참조하십시오.
+이러한 프로젝트 후원자 중 일부는 페이지를 참조하십시오.[sponsors](https://www.postgresql.org/about/sponsors/)
 
-또한 개인 컨설턴트부터 다국적 기업에 이르기까지 PostgreSQL 지원을 제공하는 [대규모 기업](https://www.postgresql.org/support/professional_support/) 커뮤니티가 있습니다.
+또한 개인 컨설턴트부터 다국적 기업에 이르기까지 PostgreSQL 지원을 제공하는 커뮤니티가 있습니다.[companies offering PostgreSQL Support](https://www.postgresql.org/support/professional_support/)
 
-PostgreSQL 글로벌 개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으시면 [기부](https://www.postgresql.org/about/donate/) 페이지를 방문하세요.
+PostgreSQL 글로벌 개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으시면 페이지를 방문하세요.[donations](https://www.postgresql.org/about/donate/)
 
 
