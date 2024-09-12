@@ -12,8 +12,8 @@
 PostgreSQL [VACUUM](https://www.postgresql.org/docs/17/routine-vacuuming.html)프로세스는 정상적인 운영을 위해 매우 중요하며, 서버 인스턴스 리소스를 필요로 합니다.
 PostgreSQL 17은 VACUUM 프로세스를 위한 최대 20배 적은 메모리를 소비하는 새로운 내부 메모리 구조를 도입했습니다. 이를 통해 VACUUM 속도가 향상되고 공유 리소스 사용량이 줄어들어 워크로드에 더 많은 가용성을 확보할 수 있습니다.
 
-PostgreSQL 17은 I/O 계층의 성능을 지속적으로 개선하고 있습니다. 동시성이 높은 워크로드의 경우, [WAL](https://www.postgresql.org/docs/17/wal-intro.html)처리의 개선으로 쓰기 처리량이 최대 2배까지 향상될 수 있습니다.
-또한, 새로운 스트리밍 I/O 인터페이스는 순차 스캔(테이블에서 모든 데이터 읽기) 속도와 [분석](https://www.postgresql.org/docs/17/sql-analyze.html)에서 플래너 통계를 업데이트하는 속도를 높여줍니다.
+PostgreSQL 17은 I/O 계층의 성능을 지속적으로 개선하고 있습니다. 동시성이 높은 워크로드의 경우, [Write Ahead Log](https://www.postgresql.org/docs/17/wal-intro.html)처리의 개선으로 쓰기 처리량이 최대 2배까지 향상될 수 있습니다.
+또한, 새로운 스트리밍 I/O 인터페이스는 순차 스캔(테이블에서 모든 데이터 읽기) 속도와 [ANALYZE](https://www.postgresql.org/docs/17/sql-analyze.html)에서 플래너 통계를 업데이트하는 속도를 높여줍니다.
 
 PostgreSQL 17은 쿼리 실행에 대한 성능을 향상시켰습니다. 
 PostgreSQL 17은 기본 인덱스 방식인 [B-tree](https://www.postgresql.org/docs/17/indexes-types.html#INDEXES-TYPES-BTREE) 인덱스를 사용하는 `IN` 절의 쿼리 성능을 개선합니다.
