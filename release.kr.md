@@ -1,5 +1,5 @@
-2024년 9월 26일, [PostgreSQL 글로벌 개발 그룹](https://www.postgresql.org)
-은 오늘 세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전인 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다.
+2024년 9월 26일, 오늘 [PostgreSQL 글로벌 개발 그룹](https://www.postgresql.org)
+은 세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전인 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다.
 
 수십 년에 걸친 오픈 소스 개발을 기반으로 구축된 PostgreSQL 17은 성능과 확장성을 개선하는 동시에 새로운 데이터 액세스 및 저장 패턴에 적응할 수 있도록 지원합니다. 이번 PostgreSQL 릴리스에는 Vacuum 상태를 위한 메모리 관리 구현, 스토리지 액세스 최적화 및 동시성이 높은 워크로드에 대한 개선, 대량 로딩 및 내보내기 속도 향상, 인덱스 쿼리 실행 개선 등 전반적인 성능이 크게 향상되었습니다. 새로운 워크로드와 중요 시스템 모두에 도움이 되는 기능, 예를 들어 SQL/JSON JSON_TABLE 명령에 대한 개발자 환경 추가, 고가용성 워크로드 및 주요 버전 업그레이드의 관리를 간소화하는 논리적 복제 기능 개선 등이 PostgreSQL 17에 포함되어 있습니다.
 
@@ -22,7 +22,7 @@ PostgreSQL 17에는 NOT NULL 제약 조건에 대한 최적화, [일반적인 �
 
 ### 더욱 향상된 개발자 환경
 
-PostgreSQL는 [JSON support가 추가된 최초의 관계형 데이터베이스(2012)](https://www.postgresql.org/about/news/postgresql-92-released-1415/)였으며, PostgreSQL 17에서는 SQL/JSON 표준에 대한 구현을 더욱 강화했습니다. 이제 PostgreSQL 17에서는 [`JSON_TABLE`](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-TABLE) 기능이 추가되어, 개발자들이 JSON 데이터를 표준 PostgreSQL 테이블로 변환할 수 있게 되었습니다. 또한 PostgreSQL 17은 [SQL/JSON 생성자](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE)(`JSON`, `JSON_SCALAR`, `JSON_SERIALIZE`)와 [쿼리 함수](https://www.postgresql.org/docs/17/functions-json.html#SQLJSON-QUERY-FUNCTIONS) (`JSON_EXISTS`, `JSON_QUERY`, `JSON_VALUE`)를 지원하여, 개발자들이 JSON 데이터를 보다 다양한 방식으로 상호작용할 수 있도록 기능을 강화했습니다. 이번 릴리즈에서는 JSON 데이터를 기본 PostgreSQL 데이터 유형으로 변환하는 데 중점을 두고, 숫자, 불리언(boolean), 문자열, 날짜/시간 유형을 포함한 더 많은 [`jsonpath` 표현식](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-PATH-OPERATORS)이 추가되었습니다.
+PostgreSQL는 [JSON 지원이 추가된 최초의 관계형 데이터베이스(2012)](https://www.postgresql.org/about/news/postgresql-92-released-1415/)였으며, PostgreSQL 17에서는 SQL/JSON 표준에 대한 구현을 더욱 강화했습니다. 이제 PostgreSQL 17에서는 [`JSON_TABLE`](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-TABLE) 기능이 추가되어, 개발자들이 JSON 데이터를 표준 PostgreSQL 테이블로 변환할 수 있게 되었습니다. 또한 PostgreSQL 17은 [SQL/JSON 생성자](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-JSON-CREATION-TABLE)(`JSON`, `JSON_SCALAR`, `JSON_SERIALIZE`)와 [쿼리 함수](https://www.postgresql.org/docs/17/functions-json.html#SQLJSON-QUERY-FUNCTIONS) (`JSON_EXISTS`, `JSON_QUERY`, `JSON_VALUE`)를 지원하여, 개발자들이 JSON 데이터를 보다 다양한 방식으로 상호작용할 수 있도록 기능을 강화했습니다. 이번 릴리즈에서는 JSON 데이터를 기본 PostgreSQL 데이터 유형으로 변환하는 데 중점을 두고, 숫자, 불리언(boolean), 문자열, 날짜/시간 유형을 포함한 더 많은 [`jsonpath` 표현식](https://www.postgresql.org/docs/17/functions-json.html#FUNCTIONS-SQLJSON-PATH-OPERATORS)이 추가되었습니다.
 
 또한 PostgreSQL 17은 조건부 업데이트에 사용되는 [`MERGE`](https://www.postgresql.org/docs/17/sql-merge.html) 기능을 더욱 강화하여, `RETURNING`절과 [뷰](https://www.postgresql.org/docs/17/sql-createview.html) 업데이트 기능을 추가했습니다. 이와 함께 PostgreSQL 17은 대량 데이터 로드 및 데이터 내보내기를 위한 새로운 기능도 도입했으며, 여기에는 [`COPY`](https://www.postgresql.org/docs/17/sql-copy.html) 명령어를 사용하여 큰 사이즈의 행을 내보낼 경우 성능이 최대 2배 향상되는 것도 포함됩니다. 또한 소스와 목적지 인코딩이 일치하는 경우 `COPY`의 성능이 개선되었고, 새롭게 추가된 옵션인 `ON_ERROR` 옵션을 통해 가져오기(import) 과정에서 삽입 오류가 발생하더라도 계속 진행할 수 있게 되었습니다.
 
