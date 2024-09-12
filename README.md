@@ -152,11 +152,11 @@ PostgreSQL 17에는 모니터링 및 분석 기능에 대한 개선 사항도 �
 
 PostgreSQL 17은 man 페이지뿐만 아니라 HTML 문서도 함께 제공되며, [HTML](https://www.postgresql.org/docs/17/) 및 [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) 형식의 문서를 온라인에서 찾아볼 수도 있습니다.
 
-## 라이선스
+## 라이센스
 
-PostgreSQL은 BSD와 유사한 “허용” 라이선스인 [PostgreSQL 라이선스](https://www.postgresql.org/about/licence/)를 사용합니다.
-[OSI 인증 라이선스](http://www.opensource.org/licenses/postgresql/)는 상용 및 독점 애플리케이션에서 PostgreSQL의 사용을 제한하지 않기 때문에 유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다. 
-여러 회사의 지원 및 코드의 공개 소유권과 함께, 이 라이선스는 수수료, 공급업체 종속 또는 라이선스 조건 변경에 대한 우려 없이 자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기가 있습니다.
+PostgreSQL은 BSD와 유사한 “허용” 라이센스인 [PostgreSQL 라이센스](https://www.postgresql.org/about/licence/)를 사용합니다.
+[OSI 인증 라이센스](http://www.opensource.org/licenses/postgresql/)는 상용 및 독점 응용 프로그램에서 PostgreSQL의 사용을 제한하지 않기 때문에 유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다. 
+여러 회사의 지원 및 코드의 공개 소유권과 함께, 이 라이센스는 수수료, 공급업체 종속 또는 라이센스 조건 변경에 대한 우려 없이 자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기가 있습니다.
 
 ## 연락처
 
