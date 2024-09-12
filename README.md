@@ -125,78 +125,59 @@ PostgreSQL 17에는 모니터링 및 분석 기능에 대한 개선 사항도 �
 ### 링크
 
 * [다운로드](https://www.postgresql.org/download/)
-* [릴리즈 노트](https://www.postgresql.org/docs/17/release-17.html)
-* [프레스 키트](https://www.postgresql.org/about/press/)
-* [보안 페이지](https://www.postgresql.org/support/security/)
-* 버전 관리 정책](https://www.postgresql.org/support/versioning/)
-* 팔로우](https://twitter.com/postgresql)
-* 기부](https://www.postgresql.org/about/donate/)
+* [출시 소식](https://www.postgresql.org/docs/17/release-17.html)
+* [홍보글](https://www.postgresql.org/about/press/)
+* [보안 정보](https://www.postgresql.org/support/security/)
+* [버전 정책](https://www.postgresql.org/support/versioning/)
+* [트위터 팔로우](https://twitter.com/postgresql)
+* [기부](https://www.postgresql.org/about/donate/)
 
 ## 기능에 대해 자세히 알아보기
 
-위의 기능 및 기타 기능에 대한 설명은 다음을 참조하세요.
-리소스를 참조하세요:
+위의 기능 및 기타 기능에 대한 설명은 다음 리소스를 참조하시기 바랍니다.
 
-* [릴리즈 노트](https://www.postgresql.org/docs/17/release-17.html)
+* [출시 소식](https://www.postgresql.org/docs/17/release-17.html)
 * [기능 매트릭스](https://www.postgresql.org/about/featurematrix/)
 
 ## 다운로드 위치
 
 다음과 같은 여러 가지 방법으로 PostgreSQL 17을 다운로드할 수 있습니다:
 
-* 공식 다운로드](https://www.postgresql.org/download/) 페이지에서 [Windows](https://www.postgresql.org/download/windows/), [Linux](https://www.postgresql.org/download/linux/), [macOS](https://www.postgresql.org/download/macosx/) 등을 위한 설치 프로그램 및 도구를 다운로드할 수 있습니다.
+* [공식 다운로드](https://www.postgresql.org/download/) 페이지에서 [Windows](https://www.postgresql.org/download/windows/), [Linux](https://www.postgresql.org/download/linux/), [macOS](https://www.postgresql.org/download/macosx/) 등을 위한 설치 프로그램 및 도구를 다운로드할 수 있습니다.
 * [소스 코드](https://www.postgresql.org/ftp/source/v17.0)
 
-다른 도구와 확장 프로그램은
-[PostgreSQL 확장 네트워크](http://pgxn.org/).
+다른 도구와 확장 프로그램은 [PostgreSQL 확장 네트워크](http://pgxn.org/).
 
 ## 문서
 
-PostgreSQL 17은 매뉴얼 페이지뿐만 아니라 HTML 문서도 함께 제공되며, [HTML](https://www.postgresql.org/docs/17/) 및 [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) 형식의 문서를 온라인에서 찾아볼 수도 있습니다.
+PostgreSQL 17은 man 페이지뿐만 아니라 HTML 문서도 함께 제공되며, [HTML](https://www.postgresql.org/docs/17/) 및 [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) 형식의 문서를 온라인에서 찾아볼 수도 있습니다.
 
 ## 라이선스
 
-PostgreSQL은 [PostgreSQL 라이선스](https://www.postgresql.org/about/licence/)를 사용합니다,
-BSD와 유사한 “허용적” 라이선스를 사용합니다. 이
-[OSI 인증 라이선스](http://www.opensource.org/licenses/postgresql/)는
-유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다.
-유연하고 비즈니스 친화적이라는 평가를 받고 있습니다. 함께
-여러 회사의 지원과 코드에 대한 공개 소유권을 갖춘 이 라이선스는
-자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기 있는 PostgreSQL은
-수수료, 공급업체 종속 또는 라이선스 조건 변경에 대한 걱정 없이 자사 제품에 데이터베이스를 내장하려는 공급업체에게 인기가 높습니다.
+PostgreSQL은 BSD와 유사한 “허용” 라이선스인 [PostgreSQL 라이선스](https://www.postgresql.org/about/licence/)를 사용합니다.
+[OSI 인증 라이선스](http://www.opensource.org/licenses/postgresql/)는 상용 및 독점 애플리케이션에서 PostgreSQL의 사용을 제한하지 않기 때문에 유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다. 
+여러 회사의 지원 및 코드의 공개 소유권과 함께, 이 라이선스는 수수료, 공급업체 종속 또는 라이선스 조건 변경에 대한 우려 없이 자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기가 있습니다.
 
 ## 연락처
 
 웹사이트
-
 * [https://www.postgresql.org/](https://www.postgresql.org/)
 
 이메일
-
 * [press@postgresql.org](mailto:press@postgresql.org)
 
-## 이미지 및 로고
+## 이미지와 로고
 
-Postgres, PostgreSQL 및 코끼리 로고(Slonik)는 모두 등록된
-상표입니다(https://www.postgres.ca).
+Postgres, PostgreSQL 및 코끼리 로고(Slonik)는 모두 [PostgreSQL 커뮤니티 협회](https://www.postgres.ca)의 등록된 상표입니다.
 이러한 마크를 사용하려면 [상표 정책](https://www.postgresql.org/about/policies/trademarks/)을 준수해야 합니다.
 
 ## 기업 지원 및 기부
 
-PostgreSQL은 개발자를 후원하는 수많은 기업의 지원을 받고 있습니다,
-호스팅 리소스를 제공하고 재정적 지원을 제공합니다. 다음을 참조하십시오.
-[스폰서](https://www.postgresql.org/about/sponsors/) 페이지를 참조하십시오.
-프로젝트 서포터.
+PostgreSQL은 개발자를 후원하고, 호스팅 리소스를 제공하고, 재정적 지원을 제공하는 수많은 회사의 지원을 받고 있습니다. 
+이러한 프로젝트 후원자 중 일부는 [스폰서](https://www.postgresql.org/about/sponsors/) 페이지를 참조하십시오.
 
-또한 다음과 같은 대규모 커뮤니티도 있습니다.
-[PostgreSQL 지원을 제공하는 회사](https://www.postgresql.org/support/professional_support/),
-개인 컨설턴트부터 다국적 기업에 이르기까지 다양합니다.
+또한 개인 컨설턴트부터 다국적 기업에 이르기까지 PostgreSQL 지원을 제공하는 [대규모 기업](https://www.postgresql.org/support/professional_support/) 커뮤니티가 있습니다.
 
-PostgreSQL 글로벌 개발 그룹에 재정적 기여를 하고 싶다면
-개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으신 경우,
-기부](https://www.postgresql.org/about/donate/) 페이지를 방문하세요.
-
-
-
+PostgreSQL 글로벌 개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으시면 [기부](https://www.postgresql.org/about/donate/) 페이지를 방문하세요.
 
 
