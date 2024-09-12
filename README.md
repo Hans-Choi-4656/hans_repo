@@ -1,5 +1,5 @@
 2024년 9월 26일, [PostgreSQL 글로벌 개발 그룹](https://www.postgresql.org)
-은 오늘 세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전인 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다,
+은 오늘 세계에서 가장 진보된 오픈 소스 데이터베이스의 최신 버전인 [PostgreSQL 17](https://www.postgresql.org/docs/17/release-17.html)의 출시를 발표했습니다.
 
 수십 년에 걸친 오픈 소스 개발을 기반으로 구축된 PostgreSQL 17은 성능과 확장성을 개선하는 동시에 새로운 데이터 액세스 및 저장 패턴에 적응할 수 있도록 지원합니다. 이번 PostgreSQL 릴리스에는 Vacuum 상태를 위한 메모리 관리 구현, 스토리지 액세스 최적화 및 동시성이 높은 워크로드에 대한 개선, 대량 로딩 및 내보내기 속도 향상, 인덱스 쿼리 실행 개선 등 전반적인 성능이 크게 향상되었습니다. 새로운 워크로드와 중요 시스템 모두에 도움이 되는 기능, 예를 들어 SQL/JSON JSON_TABLE 명령에 대한 개발자 환경 추가, 고가용성 워크로드 및 주요 버전 업그레이드의 관리를 간소화하는 논리적 복제 기능 개선 등이 PostgreSQL 17에 포함되어 있습니다.
 
@@ -9,7 +9,7 @@
 
 ### 시스템 전반의 성능 향상
 
-PostgreSQL [진공](https://www.postgresql.org/docs/17/routine-vacuuming.html)
+PostgreSQL [VACUUM](https://www.postgresql.org/docs/17/routine-vacuuming.html)
 프로세스는 정상적인 운영을 위해 매우 중요하며, 서버 인스턴스 리소스를 필요로 합니다.
 을 필요로 합니다. PostgreSQL 17은 진공을 위한 새로운 내부 메모리 구조를 도입하여
 을 위한 새로운 내부 메모리 구조를 도입했습니다. 이를 통해 진공 속도가 향상되고
