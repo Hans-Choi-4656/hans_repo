@@ -49,10 +49,7 @@ PostgreSQL 17은 모니터링 및 분석 기능이 향상되었습니다. 이제
 
 ### 추가 기능
 
-그 외 많은 새로운 기능과 개선 사항이 PostgreSQL 17에 추가되었습니다.
-사용 사례에 도움이 될 수 있습니다. 자세한 내용은
-[릴리스 노트](https://www.postgresql.org/docs/17/release-17.html)를 참조하세요.
-신규 및 변경된 기능의 전체 목록을 확인하세요.
+그 외에도 사용 사례에 도움이 될 수 있는 많은 새로운 기능과 개선 사항이 PostgreSQL 17에 추가되었습니다. 새로 추가되거나 변경된 기능의 전체 목록은 [출시 소식](https://www.postgresql.org/docs/17/release-17.html)을 참조하세요.
 
 ### PostgreSQL 소개
 
