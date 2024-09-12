@@ -129,12 +129,12 @@ PostgreSQL 17에는 모니터링 및 분석 기능에 대한 개선 사항도 �
 * [홍보글](https://www.postgresql.org/about/press/)
 * [보안 정보](https://www.postgresql.org/support/security/)
 * [버전 정책](https://www.postgresql.org/support/versioning/)
-* [트위터 팔로우](https://twitter.com/postgresql)
+* [트위터 팔로우 @postgresql](https://twitter.com/postgresql)
 * [기부](https://www.postgresql.org/about/donate/)
 
 ## 기능에 대해 자세히 알아보기
 
-위의 기능 및 기타 기능에 대한 설명은 다음 리소스를 참조하시기 바랍니다.
+위의 기능 및 기타 기능에 대한 설명은 다음 리소스를 참조하시기 바랍니다:
 
 * [출시 소식](https://www.postgresql.org/docs/17/release-17.html)
 * [기능 매트릭스](https://www.postgresql.org/about/featurematrix/)
