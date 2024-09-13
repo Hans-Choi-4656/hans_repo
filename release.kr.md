@@ -31,17 +31,17 @@ PostgreSQL 17에는 플랫폼에 독립적이고 불변성을 보장하는 정�
 
 ### 고가용성과 주요 버전 업그레이드를 위한 논리적 복제의 향상된 기능들
 
-[논리적 복제](https://www.postgresql.org/docs/17/logical-replication.html)는 다양한 사용 사례에서 데이터를 실시간으로 스트리밍하는 데 사용됩니다. 그러나 이번 출시 이전에는, 주요 버전 업그레이드를 수행하려는 사용자들이 [logical replication slots](https://www.postgresql.org/docs/17/logical-replication-subscription.html#LOGICAL-REPLICATION-SUBSCRIPTION-SLOT)을 삭제해야 했고, 이로 인해 업그레이드 후 구독들에 데이터를 다시 동기화해야 하는 번거로움이 있었습니다. 하지만 PostgreSQL 17부터는 주요 버전 업그레이드 시 logical replication slots을 삭제할 필요가 없어졌습니다. 이로 인해 논리적 복제를 사용할 때 업그레이드 프로세스가 간소화되었습니다.
+[논리적 복제](https://www.postgresql.org/docs/17/logical-replication.html)는 다양한 사용 사례에서 데이터를 실시간으로 스트리밍 하는 데 사용됩니다. 그러나 이번 출시 이전에는, 주요 버전 업그레이드를 수행하려는 사용자들이 [logical replication slots](https://www.postgresql.org/docs/17/logical-replication-subscription.html#LOGICAL-REPLICATION-SUBSCRIPTION-SLOT)을 삭제해야 했고, 이로 인해 업그레이드 후 구독들에 데이터를 다시 동기화해야 하는 번거로움이 있었습니다. 하지만 PostgreSQL 17부터는 주요 버전 업그레이드 시 logical replication slots을 삭제할 필요가 없어졌습니다. 이로 인해 논리적 복제를 사용할 때 업그레이드 프로세스가 간소화되었습니다.
 
 PostgreSQL 17은 논리적 복제를 위한 장애 조치(failover) 제어 기능을 포함하여, 고가용성 환경에서 배포될 때 더욱 탄력적으로 운영될 수 있도록 개선되었습니다. 또한, PostgreSQL 17에서는 물리적 복제본을 새로운 논리적 복제본으로 변환하는 [`pg_createsubscriber`](https://www.postgresql.org/docs/17/app-pgcreatesubscriber.html) 명령어 도구도 도입되었습니다.
 
 ### 보안 및 운영 관리를 위한 다양한 옵션
 
-PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 수명 주기를 관리할 수 있는 방법을 더욱 확장시켰습니다. PostgreSQL에는 새로운 TLS 옵션인 sslnegotiation이 있습니다. 해당 옵션을 통해 [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)(ALPN 디렉토리에 postgresql로 등록되어있음)을 사용할 때 사용자가 직접 TLS 핸드셰이크를 수행할 수 있습니다. 또한 PostgreSQL 17은 사용자가 데이터베이스의 유지 관리 작업을 수행할 수 있는 권한을 가진 `pg_maintain`이라는 [predefined role](https://www.postgresql.org/docs/17/predefined-roles.html)을 새로 추가했습니다.
+PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 수명 주기를 관리할 수 있는 방법을 더욱 확장시켰습니다. PostgreSQL에는 새로운 TLS 옵션인 sslnegotiation이 있습니다. 해당 옵션을 통해 [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation)(ALPN 디렉토리에 postgresql로 등록되어 있음)을 사용할 때 사용자가 직접 TLS 핸드셰이크를 수행할 수 있습니다. 또한 PostgreSQL 17은 사용자가 데이터베이스의 유지 관리 작업을 수행할 수 있는 권한을 가진 `pg_maintain`이라는 [predefined role](https://www.postgresql.org/docs/17/predefined-roles.html)을 새로 추가했습니다.
 
-PostgreSQL에 포함된 백업 유틸리티인 [`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html)은 이제 증분 백업을 지원하며, 전체 백업을 재구성할 수 있는 [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 유틸리티가 추가되었습니다. 또한 [`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html)에는 덤프 파일을 생성할 때 포함할 객체를 선택할 수 있는 `--filter` 라는 새로운 옵션이 추가되었습니다.
+PostgreSQL에 포함된 백업 유틸리티인 [`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html)은 이제 증분 백업을 지원하며, 전체 백업을 재구성할 수 있는 [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 유틸리티가 추가되었습니다. 또한 [`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html)에는 덤프 파일을 생성할 때 포함할 객체를 선택할 수 있는 `--filter`라는 새로운 옵션이 추가되었습니다.
 
-PostgreSQL 17은 모니터링 및 분석 기능이 개선되었습니다. 이제 [`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html)은 로컬 I/O 블록 읽기 및 쓰기에 소요된 시간을 보여주며, 데이터 변환시 네트워크 전송에 소요된 시간과 사용된 메모리 양을 확인할 수 있는 두 가지 새로운 옵션인 `SERIALIZE`와 `MEMORY`를 추가했습니다. 또한 PostgreSQL 17은 [인덱스 VACUUM 진행 상황](https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING)을 보고하며, 액티브 세션이 대기 상태인 이유에 대한 더 많은 인사이트를 제공하는 [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html) 시스템 뷰를 추가하여 [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)와 함께 사용할 수 있습니다.
+PostgreSQL 17은 모니터링 및 분석 기능이 개선되었습니다. 이제 [`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html)은 로컬 I/O 블록 읽기 및 쓰기에 소요된 시간을 보여주며, 데이터 변환 시 네트워크 전송에 소요된 시간과 사용된 메모리 양을 확인할 수 있는 두 가지 새로운 옵션인 `SERIALIZE`와 `MEMORY`를 추가했습니다. 또한 PostgreSQL 17은 [인덱스 VACUUM 진행 상황](https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING)을 보고하며, 액티브 세션이 대기 상태인 이유에 대한 더 많은 인사이트를 제공하는 [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html) 시스템 뷰를 추가하여 [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)와 함께 사용할 수 있습니다.
 
 ### 추가 기능
 
@@ -81,11 +81,11 @@ PostgreSQL 17은 모니터링 및 분석 기능이 개선되었습니다. 이제
 
 PostgreSQL 17은 man 페이지뿐만 아니라 HTML 문서도 함께 제공되며, [HTML](https://www.postgresql.org/docs/17/) 및 [PDF](https://www.postgresql.org/files/documentation/pdf/17/postgresql-17-US.pdf) 형식의 문서를 온라인에서 찾아볼 수도 있습니다.
 
-## 라이센스
+## 라이선스
 
-PostgreSQL은 BSD와 유사한 “허용” 라이센스인 [PostgreSQL 라이센스](https://www.postgresql.org/about/licence/)를 사용합니다.
-[OSI 인증 라이센스](http://www.opensource.org/licenses/postgresql/)는 상용 및 독점 응용 프로그램에서 PostgreSQL의 사용을 제한하지 않기 때문에 유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다. 
-여러 회사의 지원 및 코드의 공개 소유권과 함께, 이 라이센스는 수수료, 공급업체 종속 또는 라이센스 조건 변경에 대한 우려 없이 자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기가 있습니다.
+PostgreSQL은 BSD와 유사한 “허용” 라이선스인 [PostgreSQL 라이선스](https://www.postgresql.org/about/licence/)를 사용합니다.
+[OSI 인증 라이선스](http://www.opensource.org/licenses/postgresql/)는 상용 및 독점 응용 프로그램에서 PostgreSQL의 사용을 제한하지 않기 때문에 유연하고 비즈니스 친화적인 것으로 널리 인정받고 있습니다. 
+여러 회사의 지원 및 코드의 공개 소유권과 함께, 이 라이선스는 수수료, 공급업체 종속 또는 라이선스 조건 변경에 대한 우려 없이 자체 제품에 데이터베이스를 내장하고자 하는 공급업체에게 매우 인기가 있습니다.
 
 ## 연락처
 
@@ -103,10 +103,10 @@ Postgres, PostgreSQL 및 코끼리 로고(Slonik)는 모두 [PostgreSQL 커뮤�
 ## 기업 지원 및 기부
 
 PostgreSQL은 개발자를 후원하고, 호스팅 리소스를 제공하고, 재정적 지원을 제공하는 수많은 회사의 지원을 받고 있습니다. 
-이러한 프로젝트 후원자 중 일부는 페이지를 참조하십시오.[sponsors](https://www.postgresql.org/about/sponsors/)
+이러한 프로젝트 후원자 중 일부는 [스폰서](https://www.postgresql.org/about/sponsors/) 페이지를 참조하십시오.
 
-또한 개인 컨설턴트부터 다국적 기업에 이르기까지 PostgreSQL 지원을 제공하는 커뮤니티가 있습니다.[companies offering PostgreSQL Support](https://www.postgresql.org/support/professional_support/)
+또한 개인 컨설턴트부터 다국적 기업에 이르기까지 PostgreSQL 지원을 제공하는 [대규모 기업](https://www.postgresql.org/support/professional_support/) 커뮤니티가 있습니다.
 
-PostgreSQL 글로벌 개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 기부를 하고 싶으시면 페이지를 방문하세요.[donations](https://www.postgresql.org/about/donate/)
+PostgreSQL 글로벌 개발 그룹 또는 공인된 커뮤니티 비영리 단체 중 하나에 재정적 [기부](https://www.postgresql.org/about/donate/)를 하고 싶으시면 페이지를 방문하세요.
 
 
