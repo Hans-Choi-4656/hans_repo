@@ -41,7 +41,7 @@ PostgreSQL 17은 사용자가 데이터베이스 시스템의 전체 수명 주�
 
 PostgreSQL에 포함된 백업 유틸리티인 [`pg_basebackup`](https://www.postgresql.org/docs/17/app-pgbasebackup.html)은 이제 증분 백업을 지원하며, 전체 백업을 재구성할 수 있는 [`pg_combinebackup`](https://www.postgresql.org/docs/17/app-pgcombinebackup.html) 유틸리티가 추가되었습니다. 또한 [`pg_dump`](https://www.postgresql.org/docs/17/app-pgdump.html)에는 덤프 파일을 생성할 때 포함할 객체를 선택할 수 있는 `--filter` 라는 새로운 옵션이 추가되었습니다.
 
-PostgreSQL 17은 모니터링 및 분석 기능이 개선되었습니다. 이제 [`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html)은 로컬 I/O 블록 읽기 및 쓰기에 소요된 시간을 보여주며, 데이터 변환시 네트워크 전송에 소요된 시간과 사용된 메모리 양을 확인할 수 있는 두 가지 새로운 옵션인 `SERIALIZE`와 `MEMORY`를 추가했습니다.또한 PostgreSQL 17은 [인덱스 VACUUM 진행 상황](https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING)을 보고하며, 액티브 세션이 대기 상태인 이유에 대한 더 많은 인사이트를 제공하는 [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html) 시스템 뷰를 추가하여 [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)와 함께 사용할 수 있습니다.
+PostgreSQL 17은 모니터링 및 분석 기능이 개선되었습니다. 이제 [`EXPLAIN`](https://www.postgresql.org/docs/17/sql-explain.html)은 로컬 I/O 블록 읽기 및 쓰기에 소요된 시간을 보여주며, 데이터 변환시 네트워크 전송에 소요된 시간과 사용된 메모리 양을 확인할 수 있는 두 가지 새로운 옵션인 `SERIALIZE`와 `MEMORY`를 추가했습니다. 또한 PostgreSQL 17은 [인덱스 VACUUM 진행 상황](https://www.postgresql.org/docs/17/progress-reporting.html#VACUUM-PROGRESS-REPORTING)을 보고하며, 액티브 세션이 대기 상태인 이유에 대한 더 많은 인사이트를 제공하는 [`pg_wait_events`](https://www.postgresql.org/docs/17/view-pg-wait-events.html) 시스템 뷰를 추가하여 [`pg_stat_activity`](https://www.postgresql.org/docs/17/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW)와 함께 사용할 수 있습니다.
 
 ### 추가 기능
 
